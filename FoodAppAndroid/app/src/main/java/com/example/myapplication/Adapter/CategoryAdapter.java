@@ -1,6 +1,7 @@
 package com.example.myapplication.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.example.myapplication.Activity.ListFoodsActivity;
 import com.example.myapplication.Domain.Category;
 import com.example.myapplication.Domain.Foods;
 import com.example.myapplication.R;
@@ -79,9 +81,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
 
         int drawableResourceId = context.getResources().getIdentifier(items.get(position).getImagePath()
                 , "drawable", holder.itemView.getContext().getPackageName());
+
         Glide.with(context)
                 .load(drawableResourceId)
                 .into(holder.pic);
+
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ListFoodsActivity.class);
+            intent.putExtra("CategoryId", items.get(position).getId());
+            intent.putExtra("CategoryName", items.get(position).getName());
+            context.startActivity(intent);
+        });
     }
 
     @Override

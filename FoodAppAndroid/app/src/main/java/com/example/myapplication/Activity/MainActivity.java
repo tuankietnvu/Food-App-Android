@@ -94,8 +94,13 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    for(DataSnapshot issue: snapshot.getChildren()){
-                        list.add(issue.getValue(Category.class));
+                    for(DataSnapshot issue : snapshot.getChildren()){
+                        Category category = issue.getValue(Category.class);
+                        // Giả sử key của issue chính là id mong muốn, chuyển đổi về số nguyên nếu cần
+                        category.setId(Integer.parseInt(issue.getKey()));
+                        list.add(category);
+
+                        //list.add(issue.getValue(Category.class));
 
                     }
                     if(list.size() > 0){
