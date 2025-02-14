@@ -64,7 +64,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/starTxt"
                 app:layout_constraintStart_toEndOf="@+id/starTxt"
                 app:layout_constraintTop_toTopOf="@+id/starTxt"
-                tools:src="@drawable/star" />
+                app:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/textView14"
