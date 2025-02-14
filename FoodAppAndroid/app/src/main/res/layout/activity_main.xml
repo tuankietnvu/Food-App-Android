@@ -78,7 +78,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/editTextText"
+                        android:id="@+id/searchEdt"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_margin="4dp"

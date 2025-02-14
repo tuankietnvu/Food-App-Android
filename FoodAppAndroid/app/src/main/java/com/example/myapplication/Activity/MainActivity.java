@@ -1,5 +1,6 @@
 package com.example.myapplication.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,8 @@ import com.example.myapplication.Domain.Price;
 import com.example.myapplication.Domain.Time;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,11 +51,28 @@ public class MainActivity extends BaseActivity {
         initPrice();
         initBestFood();
         initCategory();
+        setVariable();
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+    }
+
+    private void setVariable() {
+        biding.logoutBtn.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        });
+        biding.searchBtn.setOnClickListener(view -> {
+            String text = biding.searchEdt.getText().toString();
+            if(!text.isEmpty()){
+                Intent intent = new Intent(MainActivity.this, ListFoodsActivity.class);
+                intent.putExtra("text", text);
+                intent.putExtra("isSearch", true);
+                startActivity(intent);
+            }
         });
     }
 
