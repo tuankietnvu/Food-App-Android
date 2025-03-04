@@ -74,6 +74,8 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        biding.cartBtn.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
     }
 
     private void initBestFood() {
