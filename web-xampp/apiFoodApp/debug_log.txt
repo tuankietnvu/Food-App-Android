@@ -1,0 +1,1 @@
+{"userId":"user_001","items":{"item_001":{"name":"Pizza","quantity":2,"price":10.99,"total":21.98},"item_002":{"name":"Burger","quantity":1,"price":5.99,"total":5.99}},"subtotal":27.97,"delivery_fee":5,"tax":2,"total_price":34.97,"address":{"name":"Nguyen Van A","phone":"0123456789","address":"123 ABC Street, City"},"orderId":3}

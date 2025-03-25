@@ -59,5 +59,7 @@ public class LoginActivity extends BaseActivity {
                 Toast.makeText(LoginActivity.this,"Please fill user name and password!",Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.signup.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, SignupActivity.class)));
     }
 }

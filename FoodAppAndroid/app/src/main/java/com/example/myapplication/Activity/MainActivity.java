@@ -89,7 +89,6 @@ public class MainActivity extends BaseActivity {
                 if(snapshot.exists()){
                     for(DataSnapshot issue: snapshot.getChildren()){
                         list.add(issue.getValue(Foods.class));
-
                     }
                     if(list.size() > 0){
                         biding.bestFoodView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false)) ;

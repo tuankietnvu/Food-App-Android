@@ -86,6 +86,5 @@ public class DetailActivity extends BaseActivity {
 
     private void getIntentExtra() {
         object = (Foods) getIntent().getSerializableExtra("object");
-
     }
 }

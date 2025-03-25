@@ -37,6 +37,16 @@ public class ManagmentCart {
         Toast.makeText(context, "Added to your Cart", Toast.LENGTH_SHORT).show();
     }
 
+    // Phương thức để xóa toàn bộ giỏ hàng
+    public void clearCart() {
+        // Tạo một danh sách rỗng
+        ArrayList<Foods> emptyList = new ArrayList<>();
+
+        // Lưu danh sách rỗng này vào TinyDB với key "CartList"
+        tinyDB.putListObject("CartList", emptyList);
+
+    }
+
     public ArrayList<Foods> getListCart() {
         return tinyDB.getListObject("CartList");
     }
